@@ -1,0 +1,26 @@
+@startuml
+
+title Packages
+
+component [technical-analysis]
+component [asset-specs]
+component [assets-repository]
+component [assets-backtesting]
+component [asset-data-source]
+component [asset-grapher]
+
+[technical-analysis] -down-> [asset-specs]
+
+[asset-specs] -down-> [asset-grapher]
+[technical-analysis] -down-> [asset-grapher]
+
+[assets-repository]-down-> [assets-backtesting]
+
+[asset-specs] -down-> [assets-repository]
+[asset-grapher] -down-> [assets-repository]
+
+[asset-specs] -down-> [asset-data-source]
+[asset-grapher] -down-> [asset-data-source]
+[assets-repository] -down-> [asset-data-source]
+
+@enduml
