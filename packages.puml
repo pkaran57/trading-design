@@ -9,18 +9,19 @@ component [assets-backtesting]
 component [asset-data-source]
 component [asset-grapher]
 
+' FORMAT: is consumed -> is consumed by/in
+
 [technical-analysis] -down-> [asset-specs]
 
 [asset-specs] -down-> [asset-grapher]
-[technical-analysis] -down-> [asset-grapher]
+[asset-data-source] .down.> [asset-grapher] : dev dependency
 
-[assets-repository]-down-> [assets-backtesting]
+[assets-repository] -down-> [assets-backtesting]
 
 [asset-specs] -down-> [assets-repository]
-[asset-grapher] -down-> [assets-repository]
 
 [asset-specs] -down-> [asset-data-source]
-[asset-grapher] -down-> [asset-data-source]
+[asset-grapher] .down.> [asset-data-source] : dev dependency
 [assets-repository] -down-> [asset-data-source]
 
 @enduml
